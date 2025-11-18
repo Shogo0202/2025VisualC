@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>計算・文字列操作ページ</title>
+</head>
+<body>
+    <h1>計算・文字列操作ページ</h1>
+
+    <!-- 数値計算 -->
+    <h2>数値の足し算</h2>
+    <input type="number" id="num1" placeholder="数値1">
+    <input type="number" id="num2" placeholder="数値2">
+    <button onclick="calculateSum()">計算</button>
+    <div class="result" id="sumResult"></div>
+
+    <!-- 文字列操作 -->
+    <h2>文字列の反転</h2>
+    <input type="text" id="textInput" placeholder="文字列を入力">
+    <button onclick="reverseString()">反転</button>
+    <div class="result" id="textResult"></div>
+
+    <script>
+        function calculateSum() {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById("sumResult").innerText = "数値を正しく入力してください";
+                return;
+            }
+            const sum = num1 + num2;
+            document.getElementById("sumResult").innerText = "結果: " + sum;
+        }
+
+        function reverseString() {
+            const text = document.getElementById("textInput").value;
+            const reversed = text.split('').reverse().join('');
+            document.getElementById("textResult").innerText = "反転結果: " + reversed;
+        }
+    </script>
+</body>
+</html>
